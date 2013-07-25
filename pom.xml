@@ -16,6 +16,7 @@
 		<jbehave.site.version>3.1.1</jbehave.site.version>
 		<jetty.maven.plugin>8.1.11.v20130520</jetty.maven.plugin>
 		<maven.dependency.plugin>2.8</maven.dependency.plugin>
+		<java.major.version>1.6</java.major.version>
 	</properties>
 
 	<dependencies>
@@ -69,6 +70,25 @@
 			<version>${jbehave.core.version}</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.major.version}</source>
+						<target>${java.major.version}</target>
+						<compilerVersion>${java.major.version}</compilerVersion>
+						<encoding>UTF-8</encoding>
+						<showWarnings>true</showWarnings>
+						<showDeprecation>true</showDeprecation>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 	<profiles>
 		<profile>
